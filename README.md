@@ -363,7 +363,7 @@ for (int n = 0; n < TN; n += 4) {
 
 ![kernel_1](./images/kernel_5_vs_6.png)
 
-实际测试，整体计算效率增加300～400 GFLOPS；
+实际测试，整体计算效率增加；
 
 ## kernel 7
 
