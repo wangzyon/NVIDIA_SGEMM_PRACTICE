@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -std=c++11 -rdynamic CMakeFiles/sgemm.dir/sgemm_generated_sgemm.cu.o CMakeFiles/sgemm.dir/src/sgemm_generated_utils.cu.o -o ../sgemm  /usr/local/cuda/lib64/libcudart_static.a -ldl -lrt /usr/local/cuda/lib64/libcudart_static.a -ldl -lrt -lcublas -lpthread 

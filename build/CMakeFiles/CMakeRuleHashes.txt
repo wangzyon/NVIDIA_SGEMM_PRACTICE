@@ -1,3 +1,0 @@
-# Hashes of file build rules.
-f5fae4072df9e1035ad6346b7cf898a6 CMakeFiles/sgemm.dir/sgemm_generated_sgemm.cu.o
-79049a16d6146c8c988324f5b2df4bf9 CMakeFiles/sgemm.dir/src/sgemm_generated_utils.cu.o

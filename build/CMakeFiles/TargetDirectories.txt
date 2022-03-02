@@ -1,3 +1,0 @@
-/volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/sgemm.dir
-/volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/edit_cache.dir
-/volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/rebuild_cache.dir
