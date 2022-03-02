@@ -1,0 +1,6 @@
+# ninja log v5
+6	1334	1646108590132761432	CMakeFiles/sgemm.dir/sgemm_generated_sgemm.cu.o	be6395b3631c1fc7
+2	1714	1646103801007744366	CMakeFiles/sgemm.dir/src/sgemm_generated_utils.cu.o	734436c1ca6109ea
+1334	1446	1646108590248763355	../sgemm	f19c710f659e69b6
+2	1714	1646103801007744366	/volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/sgemm.dir/src/sgemm_generated_utils.cu.o	734436c1ca6109ea
+6	1334	1646108590132761432	/volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/sgemm.dir/sgemm_generated_sgemm.cu.o	be6395b3631c1fc7

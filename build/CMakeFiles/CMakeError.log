@@ -1,0 +1,116 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_32ffd/fast && /usr/bin/make  -f CMakeFiles/cmTC_32ffd.dir/build.make CMakeFiles/cmTC_32ffd.dir/build
+make[1]: Entering directory '/volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_32ffd.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_32ffd.dir/src.c.o -c /volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_32ffd
+/usr/local/cmake-3.22/bin/cmake -E cmake_link_script CMakeFiles/cmTC_32ffd.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  -rdynamic CMakeFiles/cmTC_32ffd.dir/src.c.o -o cmTC_32ffd 
+CMakeFiles/cmTC_32ffd.dir/src.c.o: In function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+src.c:(.text+0x4a): undefined reference to `pthread_detach'
+src.c:(.text+0x56): undefined reference to `pthread_cancel'
+src.c:(.text+0x67): undefined reference to `pthread_join'
+src.c:(.text+0x7b): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_32ffd.dir/build.make:98: recipe for target 'cmTC_32ffd' failed
+make[1]: *** [cmTC_32ffd] Error 1
+make[1]: Leaving directory '/volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_32ffd/fast' failed
+make: *** [cmTC_32ffd/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_916f5/fast && /usr/bin/make  -f CMakeFiles/cmTC_916f5.dir/build.make CMakeFiles/cmTC_916f5.dir/build
+make[1]: Entering directory '/volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_916f5.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_916f5.dir/CheckFunctionExists.c.o -c /usr/local/cmake-3.22/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_916f5
+/usr/local/cmake-3.22/bin/cmake -E cmake_link_script CMakeFiles/cmTC_916f5.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_916f5.dir/CheckFunctionExists.c.o -o cmTC_916f5  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_916f5.dir/build.make:98: recipe for target 'cmTC_916f5' failed
+make[1]: *** [cmTC_916f5] Error 1
+make[1]: Leaving directory '/volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_916f5/fast' failed
+make: *** [cmTC_916f5/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/cv/.local/bin/ninja cmTC_b3e86 && [1/2] Building C object CMakeFiles/cmTC_b3e86.dir/src.c.o
+[2/2] Linking C executable cmTC_b3e86
+FAILED: cmTC_b3e86 
+: && /usr/bin/x86_64-linux-gnu-gcc-7 -fPIC -rdynamic CMakeFiles/cmTC_b3e86.dir/src.c.o -o cmTC_b3e86   && :
+CMakeFiles/cmTC_b3e86.dir/src.c.o: In function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+src.c:(.text+0x4a): undefined reference to `pthread_detach'
+src.c:(.text+0x56): undefined reference to `pthread_cancel'
+src.c:(.text+0x67): undefined reference to `pthread_join'
+src.c:(.text+0x7b): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /volume/NVIDIA_SGEMM_PRACTICE/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/cv/.local/bin/ninja cmTC_f9a41 && [1/2] Building C object CMakeFiles/cmTC_f9a41.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_f9a41
+FAILED: cmTC_f9a41 
+: && /usr/bin/x86_64-linux-gnu-gcc-7 -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_f9a41.dir/CheckFunctionExists.c.o -o cmTC_f9a41  -lpthreads && :
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+
