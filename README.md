@@ -117,10 +117,9 @@ __global__ void mysgemm_v2(int M, int N, int K, float alpha, float *A, float *B,
 - 访存量：每个block需要从global memory中读取`(K/BK)*(BM*BK+BK*BN)`个单精度浮点数，整个C存在`(M/BM)*(N/BN)`个block，因此完成C中所有元素计算需要读取`(M/BM)*(N/BN)*(K/BK)*(BM*BK+BK*BN)`个单精度浮点数
 
 kernel 1受限于全局内存的访存延迟和重复访问，优化前全局访存量为`2*K*M*N`，共享内存缓存优化后，访存量减少为原来的
-$$
+$
 \frac{1}{2}*\frac{1}{BN}*\frac{1}{BM}
-$$
-当`BN=BM=32`时，访存减少至1/32；另一方面shared memory访存延迟远低于全局内存，因此计算效率得到了一定程度的提升。
+$，当`BN=BM=32`时，访存减少至1/32；另一方面shared memory访存延迟远低于全局内存，因此计算效率得到了一定程度的提升。
 
 ## kernel 3
 
@@ -277,7 +276,7 @@ for (int j = 0; j < TM; j++) {
 
 **寄存器缓存共享内存**
 
-![](./images/kernel_5.png)
+![](./images/describe_kernel_5.png)
 
 由下方代码可知，单个线程计算thread tile元素乘累加时，共享内存会被重复访问。
 
