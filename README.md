@@ -1,11 +1,50 @@
 # 简介
 
-面向NVIDIA GPU，使用CUDA编程逐步优化矩阵乘法运算性能。
+面向NVIDIA GPU，使用CUDA编程逐步优化矩阵乘法运算性能：
+
+| 核函数   | 描述                    | GFLOPS   | 自定义核函数/CUBLAS（%） |
+| -------- | ----------------------- | -------- | ------------------------ |
+| CUBLAS   | 官方库函数              | 14448.69 | 基准                     |
+| kernel_1 | 朴素实现                | 2262.168 | 15.65657                 |
+| kernel_2 | 共享内存缓存            | 4216.536 | 29.18283                 |
+| kernel_3 | 一维Thread Tile并行优化 | 7809.629 | 54.05078                 |
+| kernel_4 | 二维Thread Tile并行优化 | 12251.3  | 84.79179                 |
+| kernel_5 | 寄存器缓存              | 12177.95 | 84.28412                 |
+| kernel_6 | FLOAT4向量访存          | 13161.49 | 91.09125                 |
+| kernel_7 | 双缓存预取              | 13634.98 | 94.36832                 |
+
+> NVIDIA GeForce RTX 3090，矩阵尺寸5120
 
 # 配置
 
-- 编译采用 `gcc 7.5.0` under Ubuntu 18.04.5 LTS.
-- NVIDIA CUDA version: `CUDA 10.2`.
+- 编译采用 `gcc 7.5.0` under Ubuntu 18.04.5 LTS
+- NVIDIA CUDA version: `CUDA 10.2`；
+
+# 目录
+
+```
+NVIDIA_SGEMM_PRACTICE                                   # 根目录
+    ├── images                                          # 图片结果
+    │     ├── describe_kernel_1.png  
+    │     ├── describe_kernel_x.png
+    │     └── kernel_x_vs_y.png
+    ├── test                                            # 测试结果
+    │     ├── test_kernel_0.txt 
+    │     ├── test_kernel_1.txt 
+    │     └── test_kernel_x.txt 
+    └── src                                             # 源文件
+    │    ├── kernel
+    │    │  ├── kernel_1.cuh                            # 声明和定义
+    │    │  ├── kernel_2.cuh
+    │    │  └── kernel_x.cuh
+    │    ├── kernel.cuh
+    │    ├── utils.cuh                                  # 辅助函数
+    │    └── utils.cu
+    ├── plot.py                                         # 根据test结果绘图
+    ├── run.sh                                          # 运行编译后可执行文件
+    ├── sgemm.cu                                        # 主程序
+    └── CMakeLists.txt                                  # 编译相关
+```
 
 # 运行
 1. 配置NVCC编译参数
